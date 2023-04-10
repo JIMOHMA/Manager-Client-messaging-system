@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text From The Web</title>
+</head>
+<body>
+  <div class="msg-history">
+    <label for="received-msg">here</label>
+    <label for="sent-msg">here</label>
+  </div>
+  <input id="inputMessage" type="text" name="message-box">
+  <button onclick="sendToPython()">Send</button>
+
+  <script>
+    function sendToPython() {
+      message = document.getElementById("inputMessage").value;
+      console.log("message is ", message);
+    }
+  </script>
+</body>
+</html>
