@@ -1,4 +1,5 @@
 import zmq
+import signal
 import sys
 import threading
 import time
@@ -47,33 +48,31 @@ class ServerWorker(threading.Thread):
         worker = self.context.socket(zmq.DEALER)
         worker.connect('inproc://backend')
         tprint('Worker started')
+
         while True:
-            ident, msg  = worker.recv_multipart()
-            identCpy    = ident
-            msgCPY      = msg
-            tprint('%s: %s' % (identCpy.decode("utf8"), msgCPY.decode("utf8")))
-            time.sleep(1. / (randint(1,10)))
-            clientName = input("Client Name or ID to reply to: ")
-            print(identCpy)
-            
-            # convert client name back to string from bytes
-            # e.g client-Muyideen becomes Muyideen
-            clientStr = identCpy
-            if clientName.encode('utf-8') == clientStr:
+            try:
+                ident, msg  = worker.recv_multipart()
+                time.sleep(1)
                 print("Sending message...")
+                self.receiveMessage(ident, msg)
+
                 worker.send_multipart([ident, msg])
                 worker.send(msg)
-            else:
-                print("Client {} isn't connected!".format(clientName))
+                # worker.send(b"HEHEHEEHEE GOT YOU :-)")
+            except KeyboardInterrupt:
+                print("Quiting application...")
+            except e:
+                print(e)
+                # worker.send_multipart(msg)
+                # worker.send(msg)
 
 
         worker.close()
 
-    def receiveMessage():
-        ident, msg = worker.recv_multipart()
+    def receiveMessage(self, ident, msg):
         tprint('%s: %s' % (ident, msg))
 
-    def sendMessage(identity, mess):
+    def sendMessage(self, identity, mess):
         while True:
             clientName = input("Client Name or ID to reply to: ")
             time.sleep(5)

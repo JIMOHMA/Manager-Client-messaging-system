@@ -33,7 +33,7 @@ class ClientTask(threading.Thread):
                 sockets = dict(poll.poll(1000))
                 if socket in sockets:
                     msg = socket.recv()
-                    tprint('Client %s received: %s' % (identity, msg))
+                    tprint('%s: %s' % ("AppManager", msg))
 
         socket.close()
         context.term()

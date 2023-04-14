@@ -99,7 +99,7 @@ from random import randint, random
 
 # Simple Router Socket
 context = zmq.Context()
-server = context.socket(zmq.ROUTER)
+server = context.socket(zmq.DEALER)
 server.bind('tcp://*:9999')
 
 
