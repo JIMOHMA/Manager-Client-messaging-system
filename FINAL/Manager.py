@@ -99,16 +99,19 @@ from random import randint, random
 
 # Simple Router Socket
 context = zmq.Context()
-server = context.socket(zmq.DEALER)
+server = context.socket(zmq.ROUTER)
 server.bind('tcp://*:9999')
 
+
+# senderSocket = context.socket(zmq.PUB)
+# senderSocket.bind('tcp://*:8888')
 
 # sending message function
 def sending_messages(server):
   while True:
     message = input()
     server.send_string(u'%s' % (message))
-    # server.send_multipart(u'%s' % (message))
+    # server.send_multipart([u'%s' % (message)])
     print("You: " + message)
 
 # receiving message function

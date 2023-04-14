@@ -67,12 +67,13 @@ def sending_messages(client):
   while True:
     message = input()
     client.send_string(u'%s' % (message))
+    # client.send_multipart([u'%s' % (message)])
     print("You: " + message)
 
 # receiving message function
 def receiving_messages(client):
   while True:
-    print("Client: " + client.recv().decode('utf-8'))
+    print("AppManager: " + client.recv().decode('utf-8'))
 
 
 # threads to start both receving and sending functions
