@@ -99,27 +99,34 @@ from random import randint, random
 
 # Simple Router Socket
 context = zmq.Context()
-server = context.socket(zmq.DEALER)
+server = context.socket(zmq.DEALER)  
+# server = context.socket(zmq.ROUTER)  # Use this if you need to ID the clients to connecting to the App Manager
 server.bind('tcp://*:9999')
 
 
-# senderSocket = context.socket(zmq.PUB)
-# senderSocket.bind('tcp://*:8888')
+server_pub_Socket = zmq.Context().socket(zmq.PUB)
+server_pub_Socket.bind('tcp://*:8888')
 
 # sending message function
-def sending_messages(server):
+def sending_messages(server, server_pub_Socket):
   while True:
     message = input()
-    server.send_string(u'%s' % (message))
+    # server.send_string(u'%s' % (message))
     # server.send_multipart([u'%s' % (message)])
+    list_Msg = [bytes(message, 'utf-8')]
+    server_pub_Socket.send_multipart(list_Msg)
+    # server_pub_Socket.send_string(u'%s' % (message))
     print("You: " + message)
 
 # receiving message function
 def receiving_messages(server):
   while True:
-    print("Client: " + server.recv().decode('utf-8'))
-
+    print("Client: "+ server.recv().decode('utf-8'))
+    # try:
+    #   print("Client: "+ server.recv().decode('utf-8'))
+    # except:
+    #   print("Client: "+ server.recv().decode(errors='replace'))
 
 # threads to start both receving and sending functions
-threading.Thread(target=receiving_messages, args=(server,)).start()
-threading.Thread(target=sending_messages, args=(server,)).start()
+threading.Thread(target=receiving_messages, args=(server, )).start()
+threading.Thread(target=sending_messages, args=(server, server_pub_Socket)).start()

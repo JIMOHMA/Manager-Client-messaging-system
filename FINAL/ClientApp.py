@@ -60,7 +60,10 @@ context = zmq.Context()
 client = context.socket(zmq.DEALER)
 client.connect('tcp://localhost:9999')
 
-
+client_sub_Socket = context.socket(zmq.SUB)
+client_sub_Socket.connect('tcp://127.0.0.1:8888')
+# client_sub_Socket.setsockopt(zmq.SUBSCRIBE, b'')
+client_sub_Socket.setsockopt_string(zmq.SUBSCRIBE, '')
 
 # sending message function
 def sending_messages(client):
@@ -71,11 +74,12 @@ def sending_messages(client):
     print("You: " + message)
 
 # receiving message function
-def receiving_messages(client):
+def receiving_messages(client, client_sub_Socket):
   while True:
-    print("AppManager: " + client.recv().decode('utf-8'))
+    print("%s: %s" % ("AppManager", client_sub_Socket.recv_multipart()))
+    # print("AppManager: " + client_sub_Socket.recv().decode('utf-8'))
 
 
 # threads to start both receving and sending functions
-threading.Thread(target=receiving_messages, args=(client,)).start()
-threading.Thread(target=sending_messages, args=(client,)).start()
+threading.Thread(target=receiving_messages, args=(client, client_sub_Socket,)).start()
+threading.Thread(target=sending_messages, args=(client, )).start()
