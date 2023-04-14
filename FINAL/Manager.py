@@ -103,9 +103,19 @@ server = context.socket(zmq.DEALER)
 # server = context.socket(zmq.ROUTER)  # Use this if you need to ID the clients to connecting to the App Manager
 server.bind('tcp://*:9999')
 
+# poller = zmq.Poller()
+# poller.register(server, zmq.POLLIN)
+
 
 server_pub_Socket = zmq.Context().socket(zmq.PUB)
 server_pub_Socket.bind('tcp://*:8888')
+
+
+def tprint(msg):
+    """like print, but won't get newlines confused with multiple threads"""
+    sys.stdout.write(msg + '\n')
+    sys.stdout.flush()
+
 
 # sending message function
 def sending_messages(server, server_pub_Socket):
@@ -121,12 +131,15 @@ def sending_messages(server, server_pub_Socket):
 # receiving message function
 def receiving_messages(server):
   while True:
-    print("Client: "+ server.recv().decode('utf-8'))
-    # try:
-    #   print("Client: "+ server.recv().decode('utf-8'))
-    # except:
-    #   print("Client: "+ server.recv().decode(errors='replace'))
+    client_Information = [msg.decode('utf-8') for msg in server.recv_multipart()]
+    client_ID           = client_Information[0]
+    client_Msg          = client_Information[1]
+    print(f"{client_ID}: {client_Msg}")
+
 
 # threads to start both receving and sending functions
 threading.Thread(target=receiving_messages, args=(server, )).start()
 threading.Thread(target=sending_messages, args=(server, server_pub_Socket)).start()
+
+
+# TODO: Handle ctrl-C 
