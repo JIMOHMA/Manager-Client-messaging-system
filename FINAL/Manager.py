@@ -1,9 +1,5 @@
 import zmq
-import signal
-import sys
-import threading
-import time
-from random import randint, random
+import sys, threading, time
 
 # Inheriting from the thread class 
 # Multithreading to be used for receiving and sending of messages
@@ -11,18 +7,23 @@ class AppManager(threading.Thread):
 
   def __init__(self):
     threading.Thread.__init__ (self)
-    
-    # Simple DEALER Socket for receiving asynchronous messages
-    self.context = zmq.Context()
-    self.server = self.context.socket(zmq.DEALER)  
-    # server = context.socket(zmq.ROUTER)  # if unique messaging is required between clients and  the App Manager
-    self.server.bind('tcp://*:9999')
+    try:
 
-    # Simple PUB Socket for broadcasting messages to every clientApp {N} connected
-    self.server_pub_Socket = self.context.socket(zmq.PUB)
-    self.server_pub_Socket.bind('tcp://*:8888')
+      # Simple DEALER Socket for receiving asynchronous messages
+      self.context    = zmq.Context()
+      self.server     = self.context.socket(zmq.DEALER)  
+      # server = context.socket(zmq.ROUTER)  # if unique messaging is required between clients and  the App Manager
+      self.server.bind('tcp://*:9999')
 
-  def run(self):
+      # Simple PUB Socket for broadcasting messages to every clientApp {N} connected
+      self.server_pub_Socket = self.context.socket(zmq.PUB)
+      self.server_pub_Socket.bind('tcp://*:8888')
+    except:
+      print(e, " this is the error")
+      # Close the server socket
+      self.exit()
+
+  def run(self) -> None:
     try:
       # threads to start both receving and sending messages
       # since we're using the command line for input from the user, using two threads
@@ -44,10 +45,13 @@ class AppManager(threading.Thread):
       # Close the server socket
       self.exit()
 
-  def exit(self):
+  def exit(self) -> None:
       """Close the socket"""
+      print("Here3")
       self.server.close()
+      print("Here2")
       self.server_pub_Socket.close()
+      print("Here1")
       self.context.term()
 
     # poll = zmq.Poller()
@@ -55,17 +59,17 @@ class AppManager(threading.Thread):
     # poll.register(server_pub_Socket, zmq.POLLIN)
 
   # sending message function
-  def sending_messages(self):
+  def sending_messages(self) -> None:
     while True:
       try:
-        message = input()
-        list_Msg = [bytes(message, 'utf-8')]
+        message   = input()
+        list_Msg  = [bytes(message, 'utf-8')]
         self.server_pub_Socket.send_multipart(list_Msg)
         # server_pub_Socket.send_string(u'%s' % (message))
         print("You: " + message)
 
       except:
-        print("W: interrupt received, stopping...")
+        print("W: Interrupt received, terminating all connections...")
         time.sleep(3)  # do some work...
         break
     self.context.term() # terminating here so the receiving connection also terminates 
@@ -73,19 +77,19 @@ class AppManager(threading.Thread):
 
 
   # receiving message function
-  def receiving_messages(self):
+  def receiving_messages(self) -> None:
     while True:
       try:
-        client_Information = [msg.decode('utf-8') for msg in self.server.recv_multipart()]
+        client_Information  = [msg.decode('utf-8') for msg in self.server.recv_multipart()]
         client_ID           = client_Information[0]
         client_Msg          = client_Information[1]
         print(f"{client_ID}: {client_Msg}")
       except Exception as e:
-        print("Terminating receiving connection...") # this gets triggered when the context is terminated
-        break
+        print("Herehshshshs")
+        break # this gets triggered when the context is terminated
 
 if __name__ == '__main__':
-    #Create and start the AppManager
+    #Create and start the Application Manager
     AppManager = AppManager()
     AppManager.run()
 
