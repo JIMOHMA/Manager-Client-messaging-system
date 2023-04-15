@@ -16,6 +16,7 @@ class ClientApp(threading.Thread):
     # It's only being used to distinguish on the App Manager side which 
     # client sent an information to it
     self.clientID         = input("Enter your ID or userName: ")
+    print("You can start sending messages...\n")
     self.identity         = u'%s' % self.clientID
     self.client.identity  = self.identity.encode('ascii')
 
@@ -23,7 +24,6 @@ class ClientApp(threading.Thread):
     self.client_sub_Socket.connect('tcp://127.0.0.1:8888')
     # client_sub_Socket.setsockopt(zmq.SUBSCRIBE, b'')
     self.client_sub_Socket.setsockopt_string(zmq.SUBSCRIBE, '')
-
   def run(self) -> None:
     try:
       # threads to start both receving and sending messages
@@ -54,6 +54,7 @@ class ClientApp(threading.Thread):
 
   # sending message function
   def sending_messages(self) -> None:
+    
     while True:
       try:
         message   = input()
