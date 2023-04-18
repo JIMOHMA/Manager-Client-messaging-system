@@ -1,7 +1,7 @@
 # App 0 Manager - Client App {N} System using ZeroMQ library
 
 ## Description
-Two separate applications are developed for this system, one which is the App 0 Manager and the other a Client App program
+Two separate applications are developed for this system, one which is the ***App 0 Manager*** and the other a ***Client App*** program
 
 This is an example of how ZeroMQ messaging library can be used to exchange files between two connected system(s). Three important specifications to be aware of are:
 
