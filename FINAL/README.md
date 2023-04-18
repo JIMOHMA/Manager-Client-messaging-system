@@ -58,4 +58,4 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
   * Back-End Technologies: TBD
 
 ## SYSTEM ARCHITECTURE
-![ ](UML_Diagram.PNG)
+![SYSTEM ARCHITECTURE](UML_Diagram.PNG "UML screenshot")
