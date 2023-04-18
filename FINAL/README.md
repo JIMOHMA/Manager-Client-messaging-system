@@ -29,5 +29,6 @@ python ClientApp.py
 - [x] Client App {N} is able to send and receive messages **asynchronously**
 - [x] App 0 Manager is able to send and receive messages __asynchronously__
 - [x] App 0 Manager is able to receive messages from any clients prior to the establiishment of connections
+- [ ] UI/UX for exchanging messages instead of using a Linux or Windows terminal
 
 
