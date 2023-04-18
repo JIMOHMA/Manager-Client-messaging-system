@@ -51,5 +51,8 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 
 
 ### Requirements for this projects
-  * Programming Language: ***python3 (anyversion of 3.x.x)***
+  * Programming Language: ***python3 (any version of 3.x.x)***
   * Libraries used: ***pyzmq, threading, sys, and time***
+  * Database: TBD
+  * Front-End Technologies: TBD 
+  * Back-End Technologies: TBD
