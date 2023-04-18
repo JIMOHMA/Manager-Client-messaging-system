@@ -40,8 +40,8 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 
 
 ### Features
-- [x] *“Client App {N}”* is able to send and receive messages **asynchronously *(using DEALER socket)***
-- [x] *“App 0 Manager”* is able to send and receive messages __asynchronously *(using DEALER socket)*__
+- [x] *“Client App {N}”* is able to send and receive messages **asynchronously *(uses DEALER socket)***
+- [x] *“App 0 Manager”* is able to send and receive messages __asynchronously *(uses DEALER socket)*__
 - [x] *“App 0 Manager”* is able to receive messages from any clients prior to the establiishment of connections
 - [x] Any *“Client App {N}”* can send a message or messages to the *“App 0 Manager”* without an initial message from the *“App 0 Manager”
 - [x] The *“App 0 Manager”* can send out a message or messages without receiving any initial message from any *“Client App {N}”* connected to it
@@ -50,3 +50,6 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 - [ ] ***Database* integration for saving and reloading historical conversations**
 
 
+### Requirements for this projects
+  * Programming Language: ***python3 (anyversion of 3.x.x)***
+  * Libraries used: ***pyzmq, threading, sys, and time***
