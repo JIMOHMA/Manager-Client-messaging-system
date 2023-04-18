@@ -11,14 +11,14 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
 * “Client App {N}” – can send and receive messages from “App 0 Manager”
 
 ### How to get started:
-Files needed:
+#### Files needed:
   * AppManager.py
   * ClientApp.py
   * ClientApp.py
 
   This solution is Terminal-based and the following steps can be followed for execution.
-  
-  ##### Steps:
+
+  #### Steps:
   1. Have python3 installed on your machine
   2. Create a virtual environment for the program to be executed
       1. Link to creating a virtual environment on Windows: [CLICK HERE] <https://linuxhint.com/python-requirements-txt-file/>
