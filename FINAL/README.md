@@ -10,3 +10,8 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
 * “Client App {N}” – can send and receive messages from “App 0 Manager”
 
 
+```python To run program
+console.log('Code Tab A');
+```
+
+
