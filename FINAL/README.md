@@ -56,3 +56,6 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
   * Database: TBD
   * Front-End Technologies: TBD 
   * Back-End Technologies: TBD
+
+## SYSTEM ARCHITECTURE
+![SYSTEM ARCHITECTURE](UML_Diagram.PNG)
