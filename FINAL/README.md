@@ -1,4 +1,4 @@
-# App 0 Manager - Client App {N} System using ZeroMQ library
+# App 0 Manager - Client App {N} Messaging System using ZeroMQ
 
 ## Description
 Two separate applications are developed for this system, one which is the ***App 0 Manager*** and the other a ***Client App*** program
