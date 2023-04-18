@@ -28,9 +28,11 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
     #### How to run applications
     ```python 
     pip install -r requirements
-    or 
+    ```
+    ```python 
     pip3 install -r requirements
     ```
+
             
 
 
