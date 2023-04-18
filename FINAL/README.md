@@ -18,10 +18,10 @@ Files needed:
 
   This solution is Terminal-based and the following steps can be followed for execution.
 
-  * Have python3 installed on your machine
-  * Create a virtual environment for the program to be executed
-    * Link to creating a virtual environment on Windows: [CLICK HERE] <https://linuxhint.com/python-requirements-txt-file/>
-    * Link to creating a virtual environment on Linux: [CLICK HERE] <https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv.html>
+  1. Have python3 installed on your machine
+  2. Create a virtual environment for the program to be executed
+    1. Link to creating a virtual environment on Windows: [CLICK HERE] <https://linuxhint.com/python-requirements-txt-file/>
+    2. Link to creating a virtual environment on Linux: [CLICK HERE] <https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv.html>
             
 
 
