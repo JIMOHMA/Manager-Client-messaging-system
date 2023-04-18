@@ -17,7 +17,8 @@ Files needed:
   * ClientApp.py
 
   This solution is Terminal-based and the following steps can be followed for execution.
-
+  
+  ##### Steps:
   1. Have python3 installed on your machine
   2. Create a virtual environment for the program to be executed
       1. Link to creating a virtual environment on Windows: [CLICK HERE] <https://linuxhint.com/python-requirements-txt-file/>
