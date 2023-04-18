@@ -10,7 +10,7 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
 * “Client App {N}” – can send and receive messages from “App 0 Manager”
 
 
-#### How to run program
+#### How to run applications
 ```python 
 python AppManager.py 
 python ClientApp.py
