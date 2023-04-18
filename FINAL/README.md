@@ -28,7 +28,7 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
 
 ```
 pip install -r requirements
-OR
+            OR
 pip3 install -r requirements
 ```
 
