@@ -12,9 +12,9 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
 
 ### How to get started:
 Files needed:
-  * AppManager.py
-  * ClientApp.py
-  * ClientApp.py
+  *1 AppManager.py
+  *2 ClientApp.py
+  *3 ClientApp.py
 
 
 #### How to run applications
