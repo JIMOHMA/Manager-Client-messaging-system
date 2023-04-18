@@ -25,6 +25,7 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
       2. Link to creating a virtual environment on Linux: [CLICK HERE] <https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv.html>
 
   3. Activate your virtual environment and *install the requirements for this project.* 
+  
     ```bash 
     pip install -r requirements
     ```
