@@ -59,3 +59,8 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 
 ### SYSTEM ARCHITECTURE
 ![SYSTEM ARCHITECTURE](UML_Diagram.PNG "UML screenshot")
+
+
+## Next Update
+* Allow for users to specify the port # they wish to run both applications on. And default to a particular port # if nothing is specified by the user
+* 
