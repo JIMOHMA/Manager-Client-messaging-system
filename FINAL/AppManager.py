@@ -1,23 +1,26 @@
 import zmq
 import sys, threading, time
+import argparse
 
 # Inheriting from the thread class 
 # Multithreading to be used for receiving and sending of messages
 class AppManager(threading.Thread):
 
-  def __init__(self):
+  def __init__(self, dealer_port, pub_port):
     threading.Thread.__init__ (self)
     try:
 
       # Simple DEALER Socket for receiving asynchronous messages
-      self.context    = zmq.Context()
-      self.server     = self.context.socket(zmq.DEALER)  
+      self.context      = zmq.Context()
+      self.server       = self.context.socket(zmq.DEALER)  
+      self.dealer_port  = dealer_port
       # server = context.socket(zmq.ROUTER)  # if unique messaging is required between clients and  the App Manager
-      self.server.bind('tcp://*:9999')
+      self.server.bind(f'tcp://*:{dealer_port}')
 
       # Simple PUB Socket for broadcasting messages to every clientApp {N} connected
-      self.server_pub_Socket = self.context.socket(zmq.PUB)
-      self.server_pub_Socket.bind('tcp://*:8888')
+      self.server_pub_Socket  = self.context.socket(zmq.PUB)
+      self.pub_port           = pub_port
+      self.server_pub_Socket.bind(f'tcp://*:{pub_port}')
       print("You can start sending messages...\n")
     except:
       print(e, " this is the error")
@@ -87,7 +90,19 @@ class AppManager(threading.Thread):
         break # this gets triggered when the context is terminated
 
 if __name__ == '__main__':
+    
+    # Accepting arguments for port # for the DEALER and PUB sockets. 
+    # If either of these port numbers are not provided, the application
+    # defaults to [DEALER:9999] and [PUB:8888]
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p1', '--PORT1', type=int, default=9999, help="define the port# that's avaialable on your machine for the DEALER socket")
+    parser.add_argument('-p2', '--PORT2', type=int, default=8888, help="define the port# that's avaialable on your machine for the PUB socket")
+    args = parser.parse_args()
+
+    dealer_port = args.PORT1
+    pub_port    = args.PORT2
+
     #Create and start the Application Manager
-    AppManager = AppManager()
+    AppManager = AppManager(dealer_port, pub_port)
     AppManager.run()
 
