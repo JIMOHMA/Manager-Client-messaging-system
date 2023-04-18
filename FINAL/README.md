@@ -40,11 +40,12 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 
 
 ### Features
-- [x] *“Client App {N}”* is able to send and receive messages **asynchronously (using DEALER socket)**
-- [x] *“App 0 Manager”* is able to send and receive messages __asynchronously (using DEALER socket)__
+- [x] *“Client App {N}”* is able to send and receive messages **asynchronously *(using DEALER socket)***
+- [x] *“App 0 Manager”* is able to send and receive messages __asynchronously *(using DEALER socket)*__
 - [x] *“App 0 Manager”* is able to receive messages from any clients prior to the establiishment of connections
 - [x] Any *“Client App {N}”* can send a message or messages to the *“App 0 Manager”* without an initial message from the *“App 0 Manager”
 - [x] The *“App 0 Manager”* can send out a message or messages without receiving any initial message from any *“Client App {N}”* connected to it
+- [x] When the *“App 0 Manager”* sends a message, every Client connected to it receives the same message at the exact same time. In other words, the *App 0 Manager* will be broadcasting its messages to the Client Apps connected to it ***(Pub-Sub data distribution pattern).***
 - [ ] ***UI/UX* for exchanging messages instead of using a Linux or Windows terminal**
 - [ ] ***Database* integration for saving and reloading historical conversations**
 
