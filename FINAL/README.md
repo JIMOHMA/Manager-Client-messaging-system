@@ -15,7 +15,7 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
   * AppManager.py
   * ClientApp.py
 
-      **Note:** *Only one Client App was created. However, multiple client program could be run at the same time, thus creating a single application for the client was optimum for this system*
+      **Note:** *Only one **Client App** program was created. This implies that multiple client appliction could be run at the same time, thus creating a single aplication for the client was optimum for this messaging system.*
 
   This solution is Terminal-based and the following steps can be followed for execution.
 
