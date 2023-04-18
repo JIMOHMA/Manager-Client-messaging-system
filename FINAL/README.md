@@ -31,7 +31,7 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
   pip3 install -r requirements
   ```
   4. Open 3 terminals and change path to the location where both AppManager.py and ClientApp.py are installed. Type each of the following commands below into the terminals to run the applications
-  ```bash 
+  ```powershell 
   python AppManager.py  in 1st terminal
   python ClientApp.py   in 2nd terminal
   python ClientApp.py   in 3rd terminal
