@@ -24,12 +24,11 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
       1. Link to creating a virtual environment on Windows: [CLICK HERE] <https://linuxhint.com/python-requirements-txt-file/>
       2. Link to creating a virtual environment on Linux: [CLICK HERE] <https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv.html>
 
-  3. Activate your virtual environment and install the requirements for this project. 
-    #### How to run applications
-    ```python 
+  3. Activate your virtual environment and *install the requirements for this project.* 
+    ```bash 
     pip install -r requirements
     ```
-    ```python 
+    ```bash
     pip3 install -r requirements
     ```
 
