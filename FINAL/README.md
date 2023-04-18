@@ -43,6 +43,8 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 - [x] Client App {N} is able to send and receive messages **asynchronously**
 - [x] App 0 Manager is able to send and receive messages __asynchronously__
 - [x] App 0 Manager is able to receive messages from any clients prior to the establiishment of connections
+- [x] Any “Client App {N}” can send a message or messages to the “App 0 Manager” without an initial message from the “App 0 Manager”
+- [x] The “App 0 Manager” can send out a message or messages without receiving any initial message from any “Client App” connected to it
 - [ ] UI/UX for exchanging messages instead of using a Linux or Windows terminal
 
 
