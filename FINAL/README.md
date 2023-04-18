@@ -32,9 +32,9 @@ This is an example of how ZeroMQ messaging library can be used to exchange files
   ```
   4. Open 3 terminals and change path to the location where both AppManager.py and ClientApp.py are installed. Type each of the following commands below into the terminals to run the applications
   ```powershell 
-  python AppManager.py  in 1st terminal
-  python ClientApp.py   in 2nd terminal
-  python ClientApp.py   in 3rd terminal
+  python AppManager.py  on the 1st terminal
+  python ClientApp.py   on the 2nd terminal
+  python ClientApp.py   on the 3rd terminal
   ```
 
 
