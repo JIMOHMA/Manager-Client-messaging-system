@@ -15,7 +15,7 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
   * AppManager.py
   * ClientApp.py
 
-      **Note:** *Only one **Client App** program was created. This implies that multiple client appliction could be run at the same time, thus creating a single aplication for the client was optimum for this messaging system.*
+      **Note:** *Only one **Client App** program was created. This implies that multiple client applications could be run at the same time, thus creating a single aplication for the client was optimum for this messaging system.*
 
   This solution is Terminal-based and the following steps can be followed for execution.
 
@@ -47,7 +47,7 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 - [x] The *“App 0 Manager”* can send out a message or messages without receiving any initial message from any *“Client App {N}”* connected to it
 - [x] When the *“App 0 Manager”* sends a message, every Client connected to it receives the same message at the exact same time. In other words, the *App 0 Manager* will be broadcasting its messages to the Client Apps connected to it ***(Pub-Sub data distribution pattern).***
 - [ ] ***UI/UX* for exchanging messages instead of using a Linux or Windows terminal**
-- [ ] ***Database* integration for saving and reloading historical conversations**
+- [ ] ***Database* integration for saving and reloading of historical conversations**
 
 
 ### Requirements for this projects
