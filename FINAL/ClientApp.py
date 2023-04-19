@@ -99,7 +99,7 @@ if __name__ == '__main__':
     # defaults to [DEALER:9999] and [SUB:8888]
     parser = argparse.ArgumentParser()
     parser.add_argument('-p1', '--PORT1', type=int, default=9999, help="define the port# provided by the AppManger which their DEALER socket is binded to")
-    parser.add_argument('-p2', '--PORT2', type=int, default=8888, help="define the port# provided by the AppManger which their SUB socket is binded to")
+    parser.add_argument('-p2', '--PORT2', type=int, default=8888, help="define the port# provided by the AppManger which their PUB socket is binded to")
     
     # ports
     args = parser.parse_args()
