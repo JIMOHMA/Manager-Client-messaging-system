@@ -1,16 +1,18 @@
 import zmq
 import sys, time, threading
+import argparse
 
 
 # Inheriting from the thread class 
 # Multithreading to be used for receiving and sending of messages
 class ClientApp(threading.Thread):
 
-  def __init__(self):
+  def __init__(self, dealer_port, sub_port):
     # Simple Dealer Socket
-    self.context  = zmq.Context()
-    self.client   = self.context.socket(zmq.DEALER)
-    self.client.connect('tcp://localhost:9999')
+    self.context      = zmq.Context()
+    self.client       = self.context.socket(zmq.DEALER)
+    self.dealer_port  = dealer_port
+    self.client.connect(f'tcp://localhost:{self.dealer_port}')
 
     # The ID could be anything; a number or alphabet or alphanumeric. 
     # It's only being used to distinguish on the App Manager side which 
@@ -20,8 +22,9 @@ class ClientApp(threading.Thread):
     self.identity         = u'%s' % self.clientID
     self.client.identity  = self.identity.encode('ascii')
 
-    self.client_sub_Socket = self.context.socket(zmq.SUB)
-    self.client_sub_Socket.connect('tcp://127.0.0.1:8888')
+    self.client_sub_Socket  = self.context.socket(zmq.SUB)
+    self.sub_port           = sub_port
+    self.client_sub_Socket.connect(f'tcp://127.0.0.1:{self.sub_port}')
     # client_sub_Socket.setsockopt(zmq.SUBSCRIBE, b'')
     self.client_sub_Socket.setsockopt_string(zmq.SUBSCRIBE, '')
   def run(self) -> None:
@@ -90,6 +93,19 @@ class ClientApp(threading.Thread):
     # self.context.term()
 
 if __name__ == '__main__':
-    #Create and start the Client Application
-    ClientApp = ClientApp()
+
+    # Reading arguments for port # for the DEALER and PUB sockets. 
+    # If either of these port numbers are not provided, the application
+    # defaults to [DEALER:9999] and [SUB:8888]
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p1', '--PORT1', type=int, default=9999, help="define the port# provided by the AppManger which their DEALER socket is binded to")
+    parser.add_argument('-p2', '--PORT2', type=int, default=8888, help="define the port# provided by the AppManger which their SUB socket is binded to")
+    
+    # ports
+    args = parser.parse_args()
+    dealer_port = args.PORT1
+    sub_port    = args.PORT2
+
+    # Create and start the Client Application
+    ClientApp = ClientApp(dealer_port, sub_port)
     ClientApp.run()
