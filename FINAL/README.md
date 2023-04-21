@@ -33,34 +33,37 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
   ```
   4. Open 3 terminals and change path to the location where both AppManager.py and ClientApp.py are installed. Type each of the following commands below into the terminals to run the applications
   ```powershell 
-  python AppManager.py  on the 1st terminal
-  python ClientApp.py   on the 2nd terminal
-  python ClientApp.py   on the 3rd terminal
+  python AppManager.py <-p1> <port_number> <-p2> <port_number> on the 1st terminal
+  python ClientApp.py <-p1> <port_number> <-p2> <port_number> on the 2nd terminal
+  python ClientApp.py <-p1> <port_number> <-p2> <port_number> on the 3rd terminal
   ```
 
 
-### Features
+### Current-Features
 - [x] *“Client App {N}”* is able to send and receive messages **asynchronously *(uses DEALER socket)***
 - [x] *“App 0 Manager”* is able to send and receive messages __asynchronously *(uses DEALER socket)*__
 - [x] *“App 0 Manager”* is able to receive messages from any clients prior to the establiishment of connections
 - [x] Any *“Client App {N}”* can send a message or messages to the *“App 0 Manager”* without an initial message from the *“App 0 Manager”
 - [x] The *“App 0 Manager”* can send out a message or messages without receiving any initial message from any *“Client App {N}”* connected to it
 - [x] When the *“App 0 Manager”* sends a message, every Client connected to it receives the same message at the exact same time. In other words, the *App 0 Manager* will be broadcasting its messages to the Client Apps connected to it ***(Pub-Sub data distribution pattern).***
+- [x] Allows for users to specify the port #s they wish to run both applications on their machine. If port #s are not specified for either the App 0 Manager or the Client App, the system defaults to the following; ***{App 0 Manager|Port: 9999}*** and ***{Client App|Port: 8888}***
+
+### Upcomming-Features
 - [ ] ***UI/UX* for exchanging messages instead of using a Linux or Windows terminal**
 - [ ] ***Database* integration for saving and reloading of historical conversations**
+- [ ] Database: TBD
+- [ ] Front-End Technologies: TBD 
+- [ ] Back-End Technologies: TBD
 
 
 ### Requirements for this projects
   * Programming Language: ***python3 (any version of 3.x.x)***
   * Libraries used: ***pyzmq, threading, sys, and time***
-  * Database: TBD
-  * Front-End Technologies: TBD 
-  * Back-End Technologies: TBD
+
 
 ### SYSTEM ARCHITECTURE
 ![SYSTEM ARCHITECTURE](UML_Diagram.PNG "UML screenshot")
 
 
 ## Next Update
-* Allow for users to specify the port # they wish to run both applications on. Default to a particular port # if nothing is specified by the user
-* 
+* Integration of a Front-End UI/UX with a Back-End capabilities => Data flowing from the browser to the the back end and to another brower. Thus similating the back-and-forth messaging between an App Manager and some Client App {N}
