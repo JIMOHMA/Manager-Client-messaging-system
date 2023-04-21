@@ -37,7 +37,7 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
   python ClientApp.py <-p1> <port_number> <-p2> <port_number> on the 2nd terminal
   python ClientApp.py <-p1> <port_number> <-p2> <port_number> on the 3rd terminal
   ```
-      ***OR***
+***OR***
   ```powershell 
   python AppManager.py <--PORT1> <port_number> <--PORT2> <port_number> on the 1st terminal
   python ClientApp.py <--PORT1> <port_number> <--PORT2> <port_number> on the 2nd terminal
