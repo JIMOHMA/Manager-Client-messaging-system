@@ -53,7 +53,7 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 - [x] Any *“Client App {N}”* can send a message or messages to the *“App 0 Manager”* without an initial message from the *“App 0 Manager”
 - [x] The *“App 0 Manager”* can send out a message or messages without receiving any initial message from any *“Client App {N}”* connected to it
 - [x] When the *“App 0 Manager”* sends a message, every Client connected to it receives the same message at the exact same time. In other words, the *App 0 Manager* will be broadcasting its messages to the Client Apps connected to it ***(Pub-Sub data distribution pattern).***
-- [x] Allows for users to specify the port #s they wish to run both applications on their machine. If port #s are not specified for either the App 0 Manager or the Client App, the system defaults to the following; ***{App 0 Manager | Port: 9999}*** and ***{Client App | Port: 8888}***
+- [x] Allows for users to specify the port #s they wish to run both applications on their machine. If port #s are not specified for either the *App Manager* or the *Client App*, the system defaults to the following; ***{App 0 Manager | Port: 9999}*** and ***{Client App | Port: 8888}***
 
 ### Upcomming-Features
 - [ ] ***UI/UX* for exchanging messages instead of using a Linux or Windows terminal**
