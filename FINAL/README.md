@@ -27,9 +27,9 @@ This is an example of how ***ZeroMQ*** messaging library can be used to exchange
 
   3. *Activate your virtual environment* and **install the requirements for this project.** 
   ```
-  pip install -r requirements
+  pip install -r requirements.txt
               OR
-  pip3 install -r requirements
+  pip3 install -r requirements.txt
   ```
   4. Open 3 terminals and change path to the location where both AppManager.py and ClientApp.py are installed. Type each of the following commands below into the terminals to run the applications
   ```powershell 
