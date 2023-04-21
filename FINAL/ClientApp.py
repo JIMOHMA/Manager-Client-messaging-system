@@ -2,12 +2,11 @@ import zmq
 import sys, time, threading
 import argparse
 
-
 # Inheriting from the thread class 
 # Multithreading to be used for receiving and sending of messages
 class ClientApp(threading.Thread):
 
-  def __init__(self, dealer_port, sub_port):
+  def __init__(self, dealer_port: int, sub_port: int) -> None:
     # Simple Dealer Socket
     self.context      = zmq.Context()
     self.client       = self.context.socket(zmq.DEALER)

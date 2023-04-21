@@ -6,7 +6,7 @@ import argparse
 # Multithreading to be used for receiving and sending of messages
 class AppManager(threading.Thread):
 
-  def __init__(self, dealer_port, pub_port):
+  def __init__(self, dealer_port: int, pub_port: int) -> None:
     threading.Thread.__init__ (self)
     try:
 
