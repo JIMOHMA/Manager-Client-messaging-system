@@ -1,6 +1,7 @@
 # App 0 Manager - Client App {N} Messaging System using ZeroMQ
 
-## Description
+## Description 
+######(This readme is for the ***Terminal-Solution*** of this system)
 Two separate applications are developed for this system, one which is the ***App 0 Manager*** and the other a ***Client App*** program
 
 This is a use-case of how the ***ZeroMQ*** messaging library can be used to exchange information between two connected application(s). Three important specifications to be aware of in the design of this system are:
@@ -66,10 +67,6 @@ This is a use-case of how the ***ZeroMQ*** messaging library can be used to exch
 ### Requirements for this projects
   * Programming Language: ***python3 (any version of 3.x.x)***
   * Libraries used: ***pyzmq, threading, sys, and time***
-
-
-### SYSTEM ARCHITECTURE
-![SYSTEM ARCHITECTURE](UML_Diagram.PNG "UML screenshot")
 
 
 ## Next Update
