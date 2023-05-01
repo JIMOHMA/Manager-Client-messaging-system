@@ -4,4 +4,4 @@ from django.db import models
 class Message(models.Model):
   userName          = models.CharField(max_length=255)
   message           = models.CharField(max_length=255)
-  messageTimeStamp  = models.TimeField(auto_now_add=False, blank=True)
+  messageTimeStamp  = models.TimeField(auto_now_add=False, blank=True) # auto generate time when a message object is created
