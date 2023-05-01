@@ -1,7 +1,7 @@
 # App 0 Manager - Client App {N} Messaging System using ZeroMQ
 
 ## Description 
-######(Readme for execution throuhg the **Terminal** )
+#####(Readme for execution throuhg the **Terminal** )
 
 Two separate applications are developed for this system, one which is the ***App 0 Manager*** and the other a ***Client App*** program
 
