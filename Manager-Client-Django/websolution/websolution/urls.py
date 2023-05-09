@@ -20,6 +20,6 @@ from messaging import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('manager/', views.manager, name="manager"),
-    path('client/', views.client, name="client"),
+    path('manager/', views.manager_view, name="manager"),
+    path('client/', views.client_view, name="client"),
 ]

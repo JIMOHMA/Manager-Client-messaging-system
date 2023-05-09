@@ -7,7 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    <p> {{ userName }} </p>
-    <p> {{ message }} </p>
+    <div id="id_chat_container">
+        {% for data in allMessages %}
+            {% if data.userName != "App 0 Manager" %}
+                <div id="right" class="bubble rightchat">
+                    <p><b>{{data.userName}}:</b> {{ data.message }}&nbsp;&nbsp;&nbsp;<span><b>{{ data.messageTimeStamp }}</b></span></p>
+                </div>
+            {% else %}
+                <div id="left" class="bubble rightchat">
+                    <p><b>{{data.userName}}:</b> {{ data.message }}&nbsp;&nbsp;&nbsp;<span><b>{{ data.messageTimeStamp }}</b></span></p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <form id="post_form" action="" method="post">
+        {% csrf_token %}
+        {{ formClient }}
+        <input type="submit" value="Send">
+    </form>
+    <!-- To prevent a page from reloading on click of submit button -->
+    <script type="text/javascript">
+        $(document).on('submit', '#post-form', function(e){
+            e.preventDefault();
+        })
+    </script>
+    
 </body>
 </html>

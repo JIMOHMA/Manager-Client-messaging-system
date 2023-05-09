@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <p> {{ userName }} </p>
-    <p> {{ message }} </p>
 
+    <div id="id_chat_container">
+        {% for data in allMessages %}
+            {% if data.userName == "App 0 Manager" %}
+                <div id="left" class="bubble leftchat">
+                    <p><b>{{data.userName}}:</b> {{ data.message }}&nbsp;&nbsp;&nbsp;<span><b>{{ data.messageTimeStamp }}</b></span></p>
+                </div>
+            {% else %}
+                <div id="right" class="bubble rightchat">
+                    <p><b>{{data.userName}}:</b> {{ data.message }}&nbsp;&nbsp;&nbsp;<span><b>{{ data.messageTimeStamp }}</b></span></p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ formManager }}
+        <input type="submit" value="Send">
+    </form>
+    <!-- <script>
+        function renderMessage(){
+            var div = document.getElementById('id_chat_container');
+            div.innerHTML = div.innerHTML + '<div id="right" class="bubble rightchat">Manager: ' + '{{ managerMsg }}' + '</div>'
+        }
+    </script> -->
+    <style>
+        span {
+            color: #1da1f2;;
+        }
+    </style>
 </body>
 </html>
