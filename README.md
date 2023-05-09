@@ -7,7 +7,7 @@ Two separate applications are developed for this system, one which is the ***App
 
 This is a use-case of how the ***ZeroMQ*** messaging library can be used to exchange information between two connected application(s). Three important specifications to be aware of in the design of this system are:
 
-* "App 0 Manager”– should be able to send and receive messages with any client App (“Client App 1”, “Client App2”, ...., “Client App {N}” )
+* "App 0 Manager”– should be able to send and receive messages with any client App (“Client App 1”, “Client App2”, ...., “Client App {N}”)
 * “Client App 1” – can send and receive messages from “App 0 Manager”
 * “Client App 2” – can send and receive messages from “App 0 Manager”
 * “Client App {N}” – can send and receive messages from “App 0 Manager”
