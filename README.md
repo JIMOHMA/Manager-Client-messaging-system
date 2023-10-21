@@ -1,14 +1,12 @@
 # App 0 Manager - Client App {N} Messaging System using ZeroMQ
-![Simplified System Image](System.png "ZeroMQ Queue system")
+![Simplified ZeroMQ System Image](imgs/System.png "ZeroMQ Queue system")
 
-## Description 
-**( Readme for execution through the ***Terminal*** )**
-
+## Description
 Two separate applications are developed for this system, one which is the ***App 0 Manager*** and the other a ***Client App*** program
 
 This is a use-case of how the ***ZeroMQ*** messaging library can be used to exchange information between two connected application(s). Three important specifications to be aware of in the design of this system are:
 
-* "App 0 Manager”– should be able to send and receive messages with any client App (“Client App 1”, “Client App2”, ...., “Client App {N}”)
+* "App 0 Manager”– should be able to send and receive messages with any client App (“Client App 1”, “Client App2”, ...., “Client App {N}” )
 * “Client App 1” – can send and receive messages from “App 0 Manager”
 * “Client App 2” – can send and receive messages from “App 0 Manager”
 * “Client App {N}” – can send and receive messages from “App 0 Manager”
@@ -69,6 +67,10 @@ This is a use-case of how the ***ZeroMQ*** messaging library can be used to exch
 ### Requirements for this projects
   * Programming Language: ***python3 (any version of 3.x.x)***
   * Libraries used: ***pyzmq, threading, sys, and time***
+
+
+### SYSTEM ARCHITECTURE
+![SYSTEM ARCHITECTURE](imgs/UML_Diagram.PNG "UML screenshot")
 
 
 ## Next Update
