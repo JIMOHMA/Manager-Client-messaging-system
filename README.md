@@ -1,4 +1,5 @@
 # App 0 Manager - Client App {N} Messaging System using ZeroMQ
+![Simplified System Image](System.png "ZeroMQ Queue system")
 
 ## Description 
 **( Readme for execution through the ***Terminal*** )**
