@@ -75,8 +75,3 @@ This is a use-case of how the ***ZeroMQ*** messaging library can be used to exch
 
 ## Next Update
 * Integration of a Front-End UI/UX with a Back-End capabilities => Data flowing from the browser to the the back end and to another brower. Thus, similating the back-and-forth messaging between an App Manager and some Client App {N}
-
-```python
-  def muiz():
-      print("muiz wearing glasses")
-```
